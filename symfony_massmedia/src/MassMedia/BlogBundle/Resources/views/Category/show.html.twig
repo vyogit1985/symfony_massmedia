@@ -1,0 +1,25 @@
+{# src/MassMedia/BlogBundle/Resouces/views/Category/show.html.twig #}
+{% extends 'MassMediaBlogBundle::layout.html.twig' %}
+
+{% block name %}{{ category.name }}{% endblock %}
+
+{% block body %}
+    <article class="category">
+        <header>
+            <h2>{{ category.name }}</h2>
+        </header>
+        <div>
+            <p>{{ category.description }}</p>
+        </div>
+    </article>
+            
+    <section class="posts" id="posts">
+        <section class="previous-posts">
+            <h3>Posts</h3>
+            {% include 'MassMediaBlogBundle:Post:index.html.twig' with { 'posts': posts } %}
+        </section>
+        
+        <h3>Add post</h3>
+        {{ render(controller('MassMediaBlogBundle:Post:new',{ 'category_id': category.id })) }}   
+    </section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{# src/MassMedia/BlogBundle/Resources/views/Page/index.html.twig #}
+{% extends 'MassMediaBlogBundle::layout.html.twig' %}
+
+{% block body %}
+    {% for category in categories %}
+        <article class="category">
+            <header>
+                <h2><a href="{{ path('MassMediaBlogBundle_category_show', { 'id': category.id }) }}">{{ category.name }}</a></h2>
+            </header>
+
+            <div class="snippet">
+                <p>{{ category.description(100) }}</p>
+                <p class="continue"><a href="{{ path('MassMediaBlogBundle_category_update', { 'id': category.id }) }}">Редагувати тут...</a></p>
+            </div>
+            
+            <footer class="meta">
+            </footer>
+        </article>
+    {% else %}
+        <p>There are no categories entries for MassMedia blog</p>
+    {% endfor %}
+            
+    <h3>Add Category</h3>
+    {{ render(controller('MassMediaBlogBundle:Category:new')) }}    
+            
+{% endblock %}

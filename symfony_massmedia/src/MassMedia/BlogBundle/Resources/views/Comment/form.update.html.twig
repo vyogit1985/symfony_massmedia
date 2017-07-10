@@ -1,0 +1,7 @@
+{# src/MassMedia/BlogBundle/Resources/views/Comment/form.update.html.twig #}
+{{ form_start(form, { 'action': path('MassMediaBlogBundle_comment_update' , { 'id' : comment.id }), 'method': 'POST', 'attr': {'class': 'blogger'} }) }}
+
+    {{ form_widget(form_update) }}
+    <p>
+        <input type="submit" value="Submit">
+    </p>

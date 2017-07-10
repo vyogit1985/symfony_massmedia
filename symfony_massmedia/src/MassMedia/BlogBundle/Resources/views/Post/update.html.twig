@@ -1,0 +1,8 @@
+{% extends 'MassMediaBlogBundle::layout.html.twig' %}
+
+{% block title %}Редагування посту{% endblock%}
+
+{% block body %}
+    <h1>Редагувати пост до категоії "{{ post.categoryId.name }}" "{{ post.name }}"</h1>
+    {% include 'MassMediaBlogBundle:Post:form.update.html.twig' with { 'form': form_update } %}
+{% endblock %}

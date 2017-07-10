@@ -1,0 +1,4 @@
+services:
+#    mass_media_blog.example:
+#        class: MassMedia\BlogBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

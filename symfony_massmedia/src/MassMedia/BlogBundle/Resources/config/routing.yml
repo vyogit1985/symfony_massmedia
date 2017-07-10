@@ -1,0 +1,74 @@
+# src/MassMedia/BlogBundle/Resources/config/routing.yml
+MassMediaBlogBundle_homepage:
+    path:     /
+    defaults: { _controller: "MassMediaBlogBundle:Page:index" }
+    requirements:
+         methods:  GET
+         
+MassMediaBlogBundle_about:
+    path:   /about
+    defaults: { _controller: "MassMediaBlogBundle:Page:about" }
+    requirements:
+         methods:  GET
+
+MassMediaBlogBundle_contact:
+    path:  /contact
+    defaults: { _controller: "MassMediaBlogBundle:Page:contact" }
+    requirements:
+        methods:  GET|POST
+        
+MassMediaBlogBundle_category_show:
+    path:  /{id}
+    defaults: { _controller: "MassMediaBlogBundle:Category:show" }
+    requirements:
+        methods:  GET
+        id: \d+
+        
+MassMediaBlogBundle_post_create:
+    path:  /post/{category_id}
+    defaults: { _controller: "MassMediaBlogBundle:Post:create" }
+    requirements:
+        methods:  POST
+        id: \d+
+        
+MassMediaBlogBundle_post_show:
+    path:  /comment/{id}
+    defaults: { _controller: "MassMediaBlogBundle:Post:show" }
+    requirements:
+        methods:  GET
+        id: \d+
+        
+MassMediaBlogBundle_comment_create:
+    path:  /comment_create/{post_id}
+    defaults: { _controller: "MassMediaBlogBundle:Comment:create" }
+    requirements:
+        methods:  POST
+        id: \d+
+
+MassMediaBlogBundle_post_update:
+    path:  /post_update/{id}
+    defaults: { _controller: "MassMediaBlogBundle:Post:update" }
+    requirements:
+        methods:  POST
+        id: \d+
+        
+MassMediaBlogBundle_comment_update:
+    path:  /comment_update/{id}
+    defaults: { _controller: "MassMediaBlogBundle:Comment:update" }
+    requirements:
+        methods:  POST
+        id: \d+
+        
+MassMediaBlogBundle_category_create:
+    path:  /category_create/
+    defaults: { _controller: "MassMediaBlogBundle:Category:create" }
+    requirements:
+        methods:  POST
+        id: \d+
+        
+MassMediaBlogBundle_category_update:
+    path:  /category_update/{id}
+    defaults: { _controller: "MassMediaBlogBundle:Category:update" }
+    requirements:
+        methods:  POST
+        id: \d+

@@ -1,0 +1,8 @@
+{% extends 'MassMediaBlogBundle::layout.html.twig' %}
+
+{% block title %}Додати коментар{% endblock%}
+
+{% block body %}
+    <h1>Додайте коментар до блогу "{{ comment.postId.name }}"</h1>
+    {% include 'MassMediaBlogBundle:Comment:form.html.twig' with { 'form': form } %}
+{% endblock %}

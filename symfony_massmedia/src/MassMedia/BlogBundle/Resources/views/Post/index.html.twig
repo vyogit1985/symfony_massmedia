@@ -1,0 +1,13 @@
+{# src/MassMedia/BlogBundle/Resources/views/Post/index.html.twig #}
+
+{% for post in posts %}
+    <article class="post {{ cycle(['odd', 'even'], loop.index0) }}" id="post-{{ post.id }}">
+        <header>
+          <p><span class="highlight"><a href="{{ path('MassMediaBlogBundle_post_show', { 'id': post.id }) }}">{{ post.name }}</a></span></p>
+        </header>
+        <p>{{ post.content }}</p>
+        <p class="continue"><a href="{{ path('MassMediaBlogBundle_post_update', { 'id' : post.id }) }}">Редагувати...</a></p>
+    </article>
+{% else %}
+    <p>В цій категорії не має постів, будьте першим</p>
+{% endfor %}

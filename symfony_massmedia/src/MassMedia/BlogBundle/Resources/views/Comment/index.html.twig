@@ -1,0 +1,13 @@
+{# src/MassMedia/BlogBundle/Resources/views/Comment/index.html.twig #}
+
+{% for comment in comments %}
+    <article class="comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">
+        <header>
+            <p><span class="highlight">{{ comment.author }}</span>  <time datetime="{{ comment.createdAt|date('c') }}">{{ comment.createdAt|date('l, F j, Y') }}</time></p>
+        </header>
+        <p>{{ comment.content }}</p>
+        <p class="continue"><a href="{{ path('MassMediaBlogBundle_comment_update', { 'id' : comment.id }) }}">Редагувати...</a></p>
+    </article>
+{% else %}
+    <p>Немає коментарів для даного посту, напишіть перший...</p>
+{% endfor %}

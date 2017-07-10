@@ -1,0 +1,25 @@
+{# src/MassMedia/BlogBundle/Resouces/views/Post/show.html.twig #}
+{% extends 'MassMediaBlogBundle::layout.html.twig' %}
+
+{% block name %}{{ post.name }}{% endblock %}
+
+{% block body %}
+    <article class="post">
+        <header>
+            <h2>{{ post.name }}</h2>
+        </header>
+        <div>
+            <p>{{ post.content }}</p>
+        </div>
+    </article>
+            
+    <section class="comments" id="comments">
+        <section class="previous-comments">
+            <h3>Comments</h3>
+            {% include 'MassMediaBlogBundle:Comment:index.html.twig' with { 'comments': comments } %}
+        </section>
+        
+        <h3>Add Comment</h3>
+        {{ render(controller('MassMediaBlogBundle:Comment:new',{ 'post_id': post.id })) }} 
+    </section>
+{% endblock %}

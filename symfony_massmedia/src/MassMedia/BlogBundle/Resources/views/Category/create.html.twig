@@ -1,0 +1,8 @@
+{% extends 'MassMediaBlogBundle::layout.html.twig' %}
+
+{% block title %}Add Category{% endblock%}
+
+{% block body %}
+    <h1>Add category </h1>
+    {% include 'MassMediaBlogBundle:Category:form.html.twig' with { 'form': form } %}
+{% endblock %}
